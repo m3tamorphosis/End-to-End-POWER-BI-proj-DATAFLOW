@@ -15,6 +15,9 @@ The dashboard analyzes **borrower demographics, credit behavior, loan distributi
 <img width="1354" height="762" alt="image" src="https://github.com/user-attachments/assets/a765e1e0-7a1b-4131-bcb3-cce74b676438" />
 <img width="1349" height="748" alt="image" src="https://github.com/user-attachments/assets/e68d4a16-8d66-45b5-a548-4ca768bfee2d" />
 
+## 📌 Power BI Overview
+<img width="1920" height="1042" alt="{91900FC6-A59C-4810-93B7-6C971D343E4A}" src="https://github.com/user-attachments/assets/0ba49cfc-a3c2-452e-88c9-0c90c39e3519" />
+<img width="1919" height="996" alt="{13444584-D102-4828-BD31-6B7DB2BF8D1B}" src="https://github.com/user-attachments/assets/5beb6b3f-2d33-41d0-8a1e-fc44c4428477" />
 
 
 ---
