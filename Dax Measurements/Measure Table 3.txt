@@ -1,0 +1,21 @@
+YOY default loans change = 
+DIVIDE(
+    CALCULATE(COUNTROWS(FILTER('Loan_default','Loan_default'[Default]=TRUE())),
+    'Loan_default'[YEAR]=YEAR(MAX('Loan_default'[Loan_Date_DD_MM_YYYY])))-
+
+    CALCULATE(COUNTROWS(FILTER('Loan_default','Loan_default'[Default]=TRUE())),'Loan_default'[YEAR]=YEAR(MAX('Loan_default'[Loan_Date_DD_MM_YYYY]))-1)
+    
+    ,CALCULATE(COUNTROWS(FILTER('Loan_default','Loan_default'[Default]=TRUE())),'Loan_default'[YEAR]=YEAR(MAX('Loan_default'[Loan_Date_DD_MM_YYYY]))-1),0) * 100
+
+
+YOY Loan Amount Change = 
+DIVIDE(
+    CALCULATE(SUM(Loan_default[LoanAmount]),'Loan_default'[YEAR]=YEAR(MAX(Loan_default[Loan_Date_DD_MM_YYYY])))-
+
+    CALCULATE(SUM('Loan_default'[LoanAmount]),'Loan_default'[YEAR]=YEAR(MAX(Loan_default[Loan_Date_DD_MM_YYYY]))-1)
+ 
+    ,CALCULATE(SUM('Loan_default'[LoanAmount]),'Loan_default'[YEAR]=YEAR(MAX(Loan_default[Loan_Date_DD_MM_YYYY]))-1),0) * 100
+
+
+YTD Loan Amounts = 
+CALCULATE(SUM('Loan_default'[LoanAmount]),DATESYTD('Loan_default'[Loan_Date_DD_MM_YYYY].[Date]),ALLEXCEPT('Loan_default','Loan_default'[Column credit score bins],'Loan_default'[MaritalStatus]))

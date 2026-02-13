@@ -1,0 +1,21 @@
+Average Incom by Employment type = CALCULATE(AVERAGE('Loan_default'[Income]),ALLEXCEPT(Loan_default,'Loan_default'[EmploymentType]))
+
+Average Loan by Age group = 
+AVERAGEX(VALUES('Loan_default'[Age Groups]),AVERAGE('Loan_default'[LoanAmount]))
+
+Default rate by employment type = 
+var totalrecords= COUNTROWS(ALL('Loan_default'))
+var Defaultcases= COUNTROWS(FILTER('Loan_default','Loan_default'[Default]=TRUE()))
+
+RETURN
+CALCULATE(DIVIDE(Defaultcases,totalrecords),ALLEXCEPT('Loan_default',Loan_default[EmploymentType])) * 100
+
+Default rate by year = 
+var totalloans=
+CALCULATE(COUNTROWS('Loan_default'),ALLEXCEPT('Loan_default',Loan_default[YEAR]))
+VAR default = CALCULATE(COUNTROWS(FILTER('Loan_default','Loan_default'[Default]=TRUE())),ALLEXCEPT('Loan_default',Loan_default[YEAR]))
+RETURN
+DIVIDE(default,totalloans) * 100
+
+Loan Amount by purpose = 
+SUMX(FILTER('Loan_default',NOT(ISBLANK('Loan_default'[LoanAmount]))),'Loan_default'[LoanAmount])
